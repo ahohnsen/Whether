@@ -1,19 +1,30 @@
 import Todo from "../Todo";
 
-export default function TodoList({ todos, onDeleteTodo, onChangeTodo, onToggleCheckTodo }) {
+export default function TodoList({
+  listTitle,
+  todos,
+  onDeleteTodo,
+  onChangeTodo,
+  onToggleCheckTodo,
+}) {
   return (
-    <ul>
-      {todos.map((todo) => {
-        return (
-          <Todo
-            todo={todo}
-            key={todo.id}
-            onDeleteTodo={onDeleteTodo}
-            onChangeTodo={onChangeTodo}
-            onToggleCheckTodo={onToggleCheckTodo}
-          />
-        );
-      })}
-    </ul>
+    <>
+      <h2>
+        {listTitle} ({todos.length})
+      </h2>
+      <ul>
+        {todos.map((todo) => {
+          return (
+            <Todo
+              todo={todo}
+              key={todo.id}
+              onDeleteTodo={onDeleteTodo}
+              onChangeTodo={onChangeTodo}
+              onToggleCheckTodo={onToggleCheckTodo}
+            />
+          );
+        })}
+      </ul>
+    </>
   );
 }

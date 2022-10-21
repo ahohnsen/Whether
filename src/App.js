@@ -8,7 +8,7 @@ import initialTodos from "./data";
 function App() {
   const [todos, setTodos] = useState(initialTodos);
   const [weatherStatus, setWeatherStatus] = useState({});
-  const [filteredTodos, setFilteredTodos] = useState(todos);
+  const [currentFilter, setCurrentFilter] = useState("current");
 
   useEffect(() => {
     async function determineCurrentWeather() {
@@ -62,6 +62,22 @@ function App() {
     }
   }
 
+  function filterTodos(currentFilter) {
+    switch (currentFilter) {
+      case "current":
+        return todos.filter(
+          (todo) => todo.weather === weatherStatus.weather || todo.weather === "always"
+        );
+      case "always":
+      case "good":
+      case "bad":
+        return todos.filter((todo) => todo.weather === currentFilter);
+      case "all":
+      default:
+        return todos;
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -97,38 +113,32 @@ function App() {
     );
   }
 
-  function handleChange(event) {
-    if (event.target.value === "all") {
-      return setFilteredTodos(todos);
-    }
-    if (event.target.value === "current") {
-      const currentWeatherTodo = todos.filter((todo) => todo.weather === weatherStatus.weather);
-      return setFilteredTodos(currentWeatherTodo);
-    } else {
-      const currentTodo = todos.filter((todo) => todo.weather === event.target.value);
-      return setFilteredTodos(currentTodo);
-    }
-  }
-
   return (
     <>
       <h1>Whether</h1>
       <WeatherStatus emoji={weatherStatus.emoji} />
-      <br />
       <AddTodo onAddTodo={handleSubmit} />
-      <br />
-
-      <select onChange={handleChange}>
-        <option value="">--Please choose a weather--</option>
-        <option value="all">All</option>
-        <option value="bad">Bad</option>
-        <option value="good">Good</option>
-        <option value="always">Always</option>
-        <option value="current">Current</option>
+      <label htmlFor="select-filter">Show me the ToDos I can do: </label>
+      <select id="select-filter" onChange={(event) => setCurrentFilter(event.target.value)}>
+        <option value="all">all of them - I can't get enough!</option>
+        <option value="bad">with bad weather conditions</option>
+        <option value="good">with good weather conditions</option>
+        <option value="always">with any weather conditions</option>
+        <option value="current" selected>
+          with current weather conditions
+        </option>
       </select>
 
       <TodoList
-        todos={filteredTodos}
+        listTitle="ToDos"
+        todos={filterTodos(currentFilter).filter((filteredTodo) => filteredTodo.isChecked !== true)}
+        onDeleteTodo={deleteTodo}
+        onChangeTodo={changeTodo}
+        onToggleCheckTodo={toggleCheckTodo}
+      />
+      <TodoList
+        listTitle="Done"
+        todos={filterTodos(currentFilter).filter((filteredTodo) => filteredTodo.isChecked === true)}
         onDeleteTodo={deleteTodo}
         onChangeTodo={changeTodo}
         onToggleCheckTodo={toggleCheckTodo}

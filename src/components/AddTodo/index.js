@@ -1,4 +1,4 @@
-import RadioButton from "../RadioButton/";
+import RadioButton from "../RadioButton";
 import Svg from "../Svg";
 import Button from "../Button";
 import { ModalBackground, Modal, Form, CloseButton } from "./AddTodo.styled.js";
@@ -38,19 +38,23 @@ export default function AddTodo({ onAddTodo }) {
               <section id="choose-weather">
                 <RadioButton label="Bad" htmlFor="option-bad" name="weather" value="bad" />
                 <RadioButton label="Good" htmlFor="option-good" name="weather" value="good" />
-                <RadioButton label="Always" htmlFor="option-always" name="weather" value="always" />
+                <RadioButton
+                  label="Always"
+                  htmlFor="option-always"
+                  name="weather"
+                  value="always"
+                  checked
+                />
               </section>
-              <div>
-                <Button type="submit">Save</Button>
-                <Button
-                  type="button"
-                  onClick={() => {
-                    setIsOpen((isOpen) => !isOpen);
-                  }}
-                >
-                  Cancel
-                </Button>
-              </div>
+              <Button type="submit">Save</Button>
+              <Button
+                type="button"
+                onClick={() => {
+                  setIsOpen((isOpen) => !isOpen);
+                }}
+              >
+                Cancel
+              </Button>
             </Form>
           </Modal>
         </ModalBackground>

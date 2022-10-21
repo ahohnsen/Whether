@@ -25,8 +25,7 @@ const Modal = styled.div`
 `;
 const Form = styled.form`
   margin: 10px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
 `;
 

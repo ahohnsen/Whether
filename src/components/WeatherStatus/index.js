@@ -1,3 +1,9 @@
+import { WeatherStatusContainer } from "./WeatherStatus.styled.js";
+
 export default function WeatherStatus({ emoji }) {
-  return <span>Current weather: {emoji}</span>;
+  return (
+    <WeatherStatusContainer>
+      <span>Current weather: {emoji}</span>
+    </WeatherStatusContainer>
+  );
 }
