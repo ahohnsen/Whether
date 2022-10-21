@@ -1,7 +1,9 @@
-export default function Button({ onClick, children, type }) {
+import { ButtonStyled } from './Button.style';
+
+export default function Button({ type, variant, onClick, children }) {
   return (
-    <button type={type} onClick={onClick}>
+    <ButtonStyled type={type} variant={variant} onClick={onClick}>
       {children}
-    </button>
+    </ButtonStyled>
   );
 }

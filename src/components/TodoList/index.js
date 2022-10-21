@@ -1,7 +1,9 @@
-import Todo from "../Todo";
+import { TodoList as List } from './TodoList.styled.js';
+import Todo from '../Todo';
 
 export default function TodoList({
   listTitle,
+  emoji,
   todos,
   onDeleteTodo,
   onChangeTodo,
@@ -10,9 +12,9 @@ export default function TodoList({
   return (
     <>
       <h2>
-        {listTitle} ({todos.length})
+        {listTitle} <span>{emoji}</span> ({todos.length})
       </h2>
-      <ul>
+      <List>
         {todos.map((todo) => {
           return (
             <Todo
@@ -24,7 +26,7 @@ export default function TodoList({
             />
           );
         })}
-      </ul>
+      </List>
     </>
   );
 }

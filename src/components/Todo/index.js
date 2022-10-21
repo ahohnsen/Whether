@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Svg from "../Svg";
-import { TodoItem } from "./Todo.styled.js";
-import { IconButton } from "../IconButton";
+import { useState } from 'react';
+import Svg from '../Svg';
+import Button from '../Button/index';
+import { TodoItem } from './Todo.styled.js';
 
 export default function Todo({ todo, onDeleteTodo, onChangeTodo, onToggleCheckTodo }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,7 +17,7 @@ export default function Todo({ todo, onDeleteTodo, onChangeTodo, onToggleCheckTo
   return (
     <TodoItem weatherCategory={todo.weather}>
       <input
-        type="checkbox"
+        type='checkbox'
         checked={todo.isChecked}
         onChange={() => {
           onToggleCheckTodo(todo.id);
@@ -25,22 +25,22 @@ export default function Todo({ todo, onDeleteTodo, onChangeTodo, onToggleCheckTo
       />
       {isEditing ? (
         <>
-          <input id="edit" value={todo.title} onChange={handleChange} />
-          <IconButton aria-label="save todo" onClick={() => setIsEditing(!isEditing)}>
-            <Svg variant="save" color="black" />
-          </IconButton>
+          <input type='text' id='edit' value={todo.title} onChange={handleChange} />
+          <Button variant='icon' aria-label='save todo' onClick={() => setIsEditing(!isEditing)}>
+            <Svg variant='save' color='#3D3D3D' />
+          </Button>
         </>
       ) : (
         <>
           {todo.title}
-          <IconButton aria-label="edit todo" onClick={() => setIsEditing(!isEditing)}>
-            <Svg variant="edit" color="black" />
-          </IconButton>
+          <Button variant='icon' aria-label='edit todo' onClick={() => setIsEditing(!isEditing)}>
+            <Svg variant='edit' color='#3D3D3D' />
+          </Button>
         </>
       )}
-      <IconButton aria-label="delete todo" onClick={() => onDeleteTodo(todo.id)}>
-        <Svg variant="delete" color="black" />
-      </IconButton>
+      <Button variant='icon' aria-label='delete todo' onClick={() => onDeleteTodo(todo.id)}>
+        <Svg variant='delete' color='#3D3D3D' />
+      </Button>
     </TodoItem>
   );
 }
