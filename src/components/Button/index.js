@@ -1,7 +1,11 @@
-export default function Button({ onClick, children, type }) {
+// im Template enthalten
+
+import { ButtonStyled } from './Button.styled';
+
+export default function Button({ type, variant, onClick, children }) {
   return (
-    <button type={type} onClick={onClick}>
+    <ButtonStyled type={type} variant={variant} onClick={onClick}>
       {children}
-    </button>
+    </ButtonStyled>
   );
 }

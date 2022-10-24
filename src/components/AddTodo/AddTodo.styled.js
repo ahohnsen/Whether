@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ModalBackground = styled.div`
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
@@ -8,7 +9,6 @@ const ModalBackground = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: absolute;
 `;
 const Modal = styled.div`
   position: relative;
@@ -20,19 +20,30 @@ const Modal = styled.div`
   height: 90%;
   z-index: 10;
   border-radius: 3px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 6%), 0 5px 20px rgb(0 0 0 / 5%);
   transform: translate(-50%, -50%);
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
 `;
 const Form = styled.form`
-  margin: 10px;
+  margin: 10px auto;
   display: grid;
   gap: 1rem;
+  width: 80%;
 `;
 
-const CloseButton = styled.div`
-  position: absolute;
-  top: -15px;
-  right: -10px;
+const Input = styled.input`
+  -webkit-appearance: none;
+  border: 1px solid lightgrey;
+  height: 2.2em;
+  width: 100%;
+  font: inherit;
+  padding: 0.6em 1.7em 0.55em 1.7em;
+  border-radius: 0.3em;
 `;
 
-export { ModalBackground, Modal, Form, CloseButton };
+const ButtonGroup = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+`;
+
+export { ModalBackground, Modal, Form, Input, ButtonGroup };
