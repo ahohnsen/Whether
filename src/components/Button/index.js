@@ -1,6 +1,4 @@
-// im Template enthalten
-
-import { ButtonStyled } from './Button.styled';
+import { ButtonStyled } from "./Button.styled";
 
 export default function Button({ type, variant, onClick, children }) {
   return (
