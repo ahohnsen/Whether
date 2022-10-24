@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const ButtonStyled = styled.button`
   display: flex;
@@ -9,8 +9,29 @@ const ButtonStyled = styled.button`
   height: 2.5rem;
   width: 6.5rem;
 
+  // Teilaufgabe "Add" ------------
   ${({ variant }) =>
-    variant === "floating" &&
+    variant === 'save' &&
+    css`
+      background-color: #3d3d3d;
+      border: 1px solid #3d3d3d;
+      color: #fff;
+    `}
+  //-----------------------   
+  // Teilaufgabe "Add" ------------
+  ${({ variant }) =>
+    variant === 'cancel' &&
+    css`
+      background-color: transparent;
+      border: 1px solid #3d3d3d;
+      color: #3d3d3d;
+    `}
+  //-----------------------  
+
+
+  // im Teplate enthalten----
+  ${({ variant }) =>
+    variant === 'floating' &&
     css`
       position: fixed;
       right: 1.7rem;
@@ -22,9 +43,9 @@ const ButtonStyled = styled.button`
       box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 6px 10px 0px,
         rgb(0 0 0 / 12%) 0px 1px 18px 0px; ;
     `}
-
+   
   ${({ variant }) =>
-    variant === "close" &&
+    variant === 'close' &&
     css`
       position: absolute;
       top: 10px;
@@ -34,13 +55,13 @@ const ButtonStyled = styled.button`
     `}
 
     ${({ variant }) =>
-    variant === "icon" &&
+    variant === 'icon' &&
     css`
       border: none;
       background-color: transparent;
       width: 28px;
       height: 28px;
-    `}
+    `} //-----------------------
 `;
 
 export { ButtonStyled };
