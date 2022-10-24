@@ -17,4 +17,5 @@ const Headline = styled.h1`
 const Emoji = styled.span`
   font-size: 2.4rem;
 `;
-export { Wrapper, Emoji, Headline };
+
+export { Wrapper, Headline, Emoji };

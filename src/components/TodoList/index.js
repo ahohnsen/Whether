@@ -14,19 +14,21 @@ export default function TodoList({
       <h2>
         {listTitle} <span>{emoji}</span> ({todos.length})
       </h2>
-      <List>
-        {todos.map((todo) => {
-          return (
-            <Todo
-              todo={todo}
-              key={todo.id}
-              onDeleteTodo={onDeleteTodo}
-              onChangeTodo={onChangeTodo}
-              onToggleCheckTodo={onToggleCheckTodo}
-            />
-          );
-        })}
-      </List>
+      {todos.length > 0 && (
+        <List>
+          {todos.map((todo) => {
+            return (
+              <Todo
+                todo={todo}
+                key={todo.id}
+                onDeleteTodo={onDeleteTodo}
+                onChangeTodo={onChangeTodo}
+                onToggleCheckTodo={onToggleCheckTodo}
+              />
+            );
+          })}
+        </List>
+      )}
     </>
   );
 }

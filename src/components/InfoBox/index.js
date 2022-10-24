@@ -1,3 +1,5 @@
+// komplett im Template enthalten
+
 import { Wrapper, Emoji } from './InfoBox.styled';
 
 export default function InfoBox({ emoji }) {

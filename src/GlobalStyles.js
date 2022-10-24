@@ -15,21 +15,8 @@ body {
   background-color:#eef0eb;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
 
 
 `;
 
 export default GlobalStyle;
-
-/* 
-lightgreen: #becfbc
-lightblue: #bdcaeb
-lightyellow: #E8E687
-beige: #e7ddc7
-
-
-*/

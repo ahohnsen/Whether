@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import SelectWeather from './components/SelectWeather';
-import Layout from './components/Layout';
+import Header from './components/Header';
 import InfoBox from './components/InfoBox';
 import initialTodos from './data';
 
@@ -64,7 +64,10 @@ function App() {
     }
   }
 
+  /* fetch/filter */
   function filterTodos(currentFilter) {
+    /* add the switch case below  */
+
     switch (currentFilter) {
       case 'current':
         return todos.filter(
@@ -80,14 +83,11 @@ function App() {
     }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    setTodos([...todos, { ...data, id: nanoid() }]);
+  function addTodo(data) {
+    setTodos([{ ...data, id: nanoid(), isChecked: false }, ...todos]);
   }
 
+  /* fetch/filter   */
   function handleWeatherSelect(event) {
     setCurrentFilter(event.target.value);
   }
@@ -119,28 +119,33 @@ function App() {
     );
   }
 
+  const filteredTodos = filterTodos(currentFilter);
+
   return (
-    <Layout>
-      <InfoBox emoji={weatherStatus.emoji} />
-      <AddTodo onAddTodo={handleSubmit} />
-      <SelectWeather handleChange={handleWeatherSelect} />
-      <TodoList
-        listTitle='ToDos'
-        emoji='👎'
-        todos={filterTodos(currentFilter).filter((filteredTodo) => filteredTodo.isChecked !== true)}
-        onDeleteTodo={deleteTodo}
-        onChangeTodo={changeTodo}
-        onToggleCheckTodo={toggleCheckTodo}
-      />
-      <TodoList
-        listTitle='Done'
-        emoji='👍'
-        todos={filterTodos(currentFilter).filter((filteredTodo) => filteredTodo.isChecked === true)}
-        onDeleteTodo={deleteTodo}
-        onChangeTodo={changeTodo}
-        onToggleCheckTodo={toggleCheckTodo}
-      />
-    </Layout>
+    <>
+      <Header />
+      <main>
+        <InfoBox emoji={weatherStatus.emoji} />
+        <AddTodo onAddTodo={addTodo} />
+        <SelectWeather handleChange={handleWeatherSelect} />
+        <TodoList
+          listTitle='ToDos'
+          emoji='👎'
+          todos={filteredTodos.filter((filteredTodo) => !filteredTodo.isChecked)}
+          onDeleteTodo={deleteTodo}
+          onChangeTodo={changeTodo}
+          onToggleCheckTodo={toggleCheckTodo}
+        />
+        <TodoList
+          listTitle='Done'
+          emoji='👍'
+          todos={filteredTodos.filter((filteredTodo) => filteredTodo.isChecked)}
+          onDeleteTodo={deleteTodo}
+          onChangeTodo={changeTodo}
+          onToggleCheckTodo={toggleCheckTodo}
+        />
+      </main>
+    </>
   );
 }
 
