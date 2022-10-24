@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Recap 4: ToDo App - Whether
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this recap project you are going to work in a group to create a ToDo App, which organizes your ToDos according to different weather conditions.
 
-## Available Scripts
+## Starter Code
 
-In the project directory, you can run:
+You can find the
+[starter template here](https://github.com/ahohnsen/whether-template).
+Create only one repository per group, but each member of the group clones the repository to their local machine.
 
-### `npm start`
+> 💡 Don't forget to work on feature branches, otherwise you might run into merge conflicts!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tasks
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Render ToDo List
 
-### `npm test`
+For now you have only a few hardcoded ToDos in the `data.js` file. These ToDos are passed to the `todos` state in the `App.js` as `initialTodos`. Your first task is to render these ToDos in a list.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create a `Todo` component for a single ToDo list item.
+- Create a `TodoList` component and use an array method to render the `ToDo` component for each todo list item.
+- Your `ToDoList` component should also include a heading with the name of the ToDo list and the total amount of ToDos in the list.
+- Render the `ToDoList` component in the `App.js`.
 
-### `npm run build`
+### Check ToDos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+TBC
