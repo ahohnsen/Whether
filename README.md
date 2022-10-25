@@ -23,4 +23,10 @@ For now you have only a few hardcoded ToDos in the `data.js` file. These ToDos a
 
 ### Check ToDos
 
-TBC
+Now we want to be able to mark ToDos as completed. Additionally, all completed ToDos should be rendered in a separate list.
+
+- Add a checkbox to the `Todo` component.
+- Create a function `toggleCheckTodo` in the `App` component. The function should update the `todos` state, so that the `isChecked` property of the respective ToDo item is toggled.
+- Make sure the function is called in the `Todo` component when the checkbox is checked.
+- Reuse the `TodoList` component to render a second ToDo list in the `App` with the title "Done".
+- Adjust the ToDos you pass as a prop to both ToDoLists, so that the first list only shows the unfinished ToDos and the second one the completed ones.
