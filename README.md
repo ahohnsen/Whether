@@ -7,6 +7,7 @@ In this recap project you are going to work in a group to create a ToDo App, whi
 You can find the
 [starter template here](https://github.com/ahohnsen/whether-template).
 Create only one repository per group, but each member of the group clones the repository to their local machine.
+> 💡 Don't forget to run `npm install` to install all necessary dependencies (e.g. styled-components)
 
 > 💡 Don't forget to work on feature branches, otherwise you might run into merge conflicts!
 
